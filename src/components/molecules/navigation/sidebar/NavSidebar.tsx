@@ -32,7 +32,7 @@ export const NavSidebar: React.FC<Props> = ({
       return
     }
 
-    // once view
+    // Single view
     // setToggle((prevState: any) => ({
     //   ...prevState,
     //   [key]: { [id]: { state: true } },
@@ -45,20 +45,22 @@ export const NavSidebar: React.FC<Props> = ({
     }))
   }
 
-  const renderDropdown =
-    // eslint-disable-next-line no-unused-vars
-    (dropdownItems: Item[], id: number | string, key: string) => {
-      const checkToggle = checkObj(toggle, key)
-      const checkKey: boolean = checkToggle ? checkObj(toggle[key], id) : false
-      const elState: boolean = checkKey && toggle[key][id].state
+  const renderDropdown = (
+    dropdownItems: Item[],
+    id: number | string,
+    key: string
+  ) => {
+    const checkToggle = checkObj(toggle, key)
+    const checkKey: boolean = checkToggle ? checkObj(toggle[key], id) : false
+    const elState: boolean = checkKey && toggle[key][id].state
 
-      return (
-        <Dropdown
-          className={`overflow-hidden ${elState ? 'h-auto' : 'h-0'}`}
-          items={dropdownItems}
-        />
-      )
-    }
+    return (
+      <Dropdown
+        className={`overflow-hidden ${elState ? 'h-auto' : 'h-0'}`}
+        items={dropdownItems}
+      />
+    )
+  }
 
   console.log('RENDER')
 
