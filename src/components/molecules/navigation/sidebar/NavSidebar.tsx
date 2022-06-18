@@ -2,8 +2,8 @@ import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { checkObj } from 'helpers'
 import { Item, ItemProps, StyledNavSidebar } from 'molecules'
-import React, { useCallback, useState } from 'react'
-import { SubMenu } from './SubMenu'
+import React, { useState } from 'react'
+import { Dropdown } from './Dropdown'
 
 type Props = {
   items: ItemProps[]
@@ -45,7 +45,7 @@ export const NavSidebar: React.FC<Props> = ({
     }))
   }
 
-  const renderDropdown = useCallback(
+  const renderDropdown =
     // eslint-disable-next-line no-unused-vars
     (dropdownItems: Item[], id: number | string, key: string) => {
       const checkToggle = checkObj(toggle, key)
@@ -53,14 +53,14 @@ export const NavSidebar: React.FC<Props> = ({
       const elState: boolean = checkKey && toggle[key][id].state
 
       return (
-        <SubMenu
+        <Dropdown
           className={`overflow-hidden ${elState ? 'h-auto' : 'h-0'}`}
           items={dropdownItems}
         />
       )
-    },
-    [toggle]
-  )
+    }
+
+  console.log('RENDER')
 
   return (
     <StyledNavSidebar className={`mb-4 ${className || ''}`}>
