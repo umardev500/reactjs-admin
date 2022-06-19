@@ -1,6 +1,6 @@
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { checkObj, checkState } from 'helpers'
+import { checkState } from 'helpers'
 import { Item, ItemProps, StyledNavSidebar } from 'molecules'
 import React, { useState } from 'react'
 import { Dropdown } from './Dropdown'
