@@ -18,7 +18,13 @@ export const NavSidebar: React.FC<Props> = ({
 }) => {
   const [toggle, setToggle] = useState<any>({})
 
-  const handleClick = (id: number | string, key: string | number) => {
+  const handleClick = (
+    e: React.MouseEvent,
+    id: number | string,
+    key: string | number
+  ) => {
+    e.preventDefault()
+
     const checkToggle = checkObj(toggle, key)
     const checkKey: boolean = checkToggle ? checkObj(toggle[key], id) : false
     const elState: boolean = checkKey && toggle[key][id].state
@@ -75,7 +81,7 @@ export const NavSidebar: React.FC<Props> = ({
                 <a
                   onClick={
                     subMenu !== undefined && subMenu.length > 0
-                      ? () => handleClick(id, menuTitle)
+                      ? (e) => handleClick(e, id, menuTitle)
                       : () => {}
                   }
                   href="#link"
