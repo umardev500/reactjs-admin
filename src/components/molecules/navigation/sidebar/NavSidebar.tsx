@@ -25,10 +25,6 @@ export const NavSidebar: React.FC<Props> = ({
   ) => {
     e.preventDefault()
 
-    // const checkToggle = checkObj(toggle, key)
-    // const checkKey: boolean = checkToggle ? checkObj(toggle[key], id) : false
-    // const elState: boolean = checkKey && toggle[key][id].state
-
     const elState = checkState(id, key, toggle)
 
     if (elState) {
@@ -58,9 +54,7 @@ export const NavSidebar: React.FC<Props> = ({
     id: number | string,
     key: string
   ) => {
-    const checkToggle = checkObj(toggle, key)
-    const checkKey: boolean = checkToggle ? checkObj(toggle[key], id) : false
-    const elState: boolean = checkKey && toggle[key][id].state
+    const elState = checkState(id, key, toggle)
 
     return (
       <Dropdown
