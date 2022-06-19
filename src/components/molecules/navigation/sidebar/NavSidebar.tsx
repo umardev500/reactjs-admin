@@ -103,7 +103,10 @@ export const NavSidebar: React.FC<Props> = ({
                       subMenu !== undefined &&
                       subMenu.length > 0 && (
                         <FontAwesomeIcon
-                          className="-rotate-90"
+                          className={`${
+                            checkState(id, menuTitle, toggle) && '-rotate-90'
+                          }
+                          `}
                           fontSize={14}
                           icon={faAngleLeft}
                         />
