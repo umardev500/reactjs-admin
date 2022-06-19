@@ -99,13 +99,15 @@ export const NavSidebar: React.FC<Props> = ({
                   <p className="ml-4 font-roboto w-full justify-between flex items-center font-medium text-lg">
                     {title}
 
-                    {type === 'main' && subMenu !== undefined && (
-                      <FontAwesomeIcon
-                        className="-rotate-90"
-                        fontSize={14}
-                        icon={faAngleLeft}
-                      />
-                    )}
+                    {type === 'main' &&
+                      subMenu !== undefined &&
+                      subMenu.length > 0 && (
+                        <FontAwesomeIcon
+                          className="-rotate-90"
+                          fontSize={14}
+                          icon={faAngleLeft}
+                        />
+                      )}
                   </p>
                 </a>
 
