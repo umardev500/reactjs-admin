@@ -1,6 +1,6 @@
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { checkObj } from 'helpers'
+import { checkObj, checkState } from 'helpers'
 import { Item, ItemProps, StyledNavSidebar } from 'molecules'
 import React, { useState } from 'react'
 import { Dropdown } from './Dropdown'
@@ -21,13 +21,15 @@ export const NavSidebar: React.FC<Props> = ({
   const handleClick = (
     e: React.MouseEvent,
     id: number | string,
-    key: string | number
+    key: string
   ) => {
     e.preventDefault()
 
-    const checkToggle = checkObj(toggle, key)
-    const checkKey: boolean = checkToggle ? checkObj(toggle[key], id) : false
-    const elState: boolean = checkKey && toggle[key][id].state
+    // const checkToggle = checkObj(toggle, key)
+    // const checkKey: boolean = checkToggle ? checkObj(toggle[key], id) : false
+    // const elState: boolean = checkKey && toggle[key][id].state
+
+    const elState = checkState(id, key, toggle)
 
     if (elState) {
       setToggle((prev: any) => ({
@@ -98,7 +100,11 @@ export const NavSidebar: React.FC<Props> = ({
                     {title}
 
                     {type === 'main' && subMenu !== undefined && (
-                      <FontAwesomeIcon fontSize={14} icon={faAngleLeft} />
+                      <FontAwesomeIcon
+                        className="-rotate-90"
+                        fontSize={14}
+                        icon={faAngleLeft}
+                      />
                     )}
                   </p>
                 </a>
