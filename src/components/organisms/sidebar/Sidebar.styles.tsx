@@ -8,6 +8,10 @@ const StyledSidebar = styled.div`
     inset -1px 0px 1px rgba(0, 0, 0, 0.15);
   position: fixed;
   top: 0;
+  opacity: 1;
+  transition-property: opacity, margin-left;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in-out;
 `
 
 export default StyledSidebar

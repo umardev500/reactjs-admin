@@ -5,3 +5,11 @@
 .font-roboto {
   font-family: 'Roboto';
 }
+
+.sidebar-collapse {
+  margin-left: -250px;
+  opacity: 0 !important;
+  transition-property: opacity, margin-left;
+  transition-duration: .4s;
+  transition-timing-function: ease-in-out;
+}

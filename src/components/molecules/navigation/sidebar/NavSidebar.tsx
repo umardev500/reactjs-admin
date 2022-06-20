@@ -11,7 +11,7 @@ type Props = {
   className?: string
 }
 
-export const NavSidebar: React.FC<Props> = ({
+const NavSidebarElement: React.FC<Props> = ({
   title: menuTitle,
   items,
   className,
@@ -81,10 +81,10 @@ export const NavSidebar: React.FC<Props> = ({
                       : () => {}
                   }
                   href="#link"
-                  className={`w-full flex py-2 px-4 rounded text-slate-600 ${
+                  className={`w-full flex py-2 px-4 rounded ${
                     title === 'Dashboard'
                       ? 'bg-blue-700 text-white'
-                      : 'hover:bg-slate-200'
+                      : 'hover:bg-slate-200 text-slate-600'
                   }`}
                 >
                   <span className="w-6 flex items-center justify-center overflow-hidden">
@@ -118,3 +118,5 @@ export const NavSidebar: React.FC<Props> = ({
     </StyledNavSidebar>
   )
 }
+
+export const NavSidebar = React.memo(NavSidebarElement, () => false)

@@ -10,15 +10,22 @@ type NavigationProps = {
 }
 
 type Props = {
+  hidden?: boolean
+  className?: string
   navigation: () => NavigationProps[]
 }
 
-const SidebarElement: React.FC<Props> = ({ navigation }) => {
+// eslint-disable-next-line no-unused-vars
+const SidebarElement: React.FC<Props> = ({ navigation, hidden, className }) => {
   console.log('RENDER SIDEBAR')
+  // const navSidebarItems = useCallback((items: ItemProps[]) => items, [])
 
   return (
     <StyledSidebar
-      className="h-full absolute overflow-hidden"
+      // eslint-disable-next-line no-useless-concat
+      className={`h-full absolute overflow-hidden ${
+        hidden && 'sidebar-collapse'
+      } ${className}`}
       style={{ width: 250 }}
     >
       <Logo text="Admin" />
