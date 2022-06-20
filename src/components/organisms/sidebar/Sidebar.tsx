@@ -10,21 +10,27 @@ type NavigationProps = {
 }
 
 type Props = {
-  navigation: NavigationProps[]
+  navigation: () => NavigationProps[]
 }
 
-export const Sidebar: React.FC<Props> = ({ navigation }) => (
-  <StyledSidebar
-    className="h-full absolute overflow-hidden"
-    style={{ width: 250 }}
-  >
-    <Logo text="Admin" />
+const SidebarElement: React.FC<Props> = ({ navigation }) => {
+  console.log('RENDER SIDEBAR')
 
-    <div className="h-full bg-transparent px-2 w-full pt-4">
-      {navigation.length > 0 &&
-        navigation.map(({ id, items, title }) => (
-          <NavSidebar key={id.toString()} title={title} items={items} />
-        ))}
-    </div>
-  </StyledSidebar>
-)
+  return (
+    <StyledSidebar
+      className="h-full absolute overflow-hidden"
+      style={{ width: 250 }}
+    >
+      <Logo text="Admin" />
+
+      <div className="h-full bg-transparent px-2 w-full pt-4">
+        {navigation().length > 0 &&
+          navigation().map(({ id, items, title }) => (
+            <NavSidebar key={id.toString()} title={title} items={items} />
+          ))}
+      </div>
+    </StyledSidebar>
+  )
+}
+
+export const Sidebar = React.memo(SidebarElement)
