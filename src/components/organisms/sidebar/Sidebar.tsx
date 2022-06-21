@@ -23,7 +23,7 @@ const SidebarElement: React.FC<Props> = ({ navigation, hidden, className }) => {
   return (
     <StyledSidebar
       // eslint-disable-next-line no-useless-concat
-      className={`h-full absolute overflow-hidden ${
+      className={`h-full overflow-hidden ${
         hidden && 'sidebar-collapse'
       } ${className}`}
       style={{ width: 250 }}
