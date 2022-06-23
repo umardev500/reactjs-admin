@@ -119,4 +119,4 @@ const NavSidebarElement: React.FC<Props> = ({
   )
 }
 
-export const NavSidebar = React.memo(NavSidebarElement, () => false)
+export const NavSidebar = React.memo(NavSidebarElement, () => true)

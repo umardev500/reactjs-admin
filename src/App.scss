@@ -6,10 +6,18 @@
   font-family: 'Roboto';
 }
 
-.sidebar-collapse {
-  margin-left: -250px;
-  opacity: 0 !important;
+.main-sidebar {
+  margin-left: 0;
+  opacity: 1;
   transition-property: opacity, margin-left;
   transition-duration: .4s;
   transition-timing-function: ease-in-out;
+}
+
+.sidebar-collapse .main-sidebar {
+  margin-left: -250px;
+}
+
+.sidebar-collapse .main-header {
+  margin-left: 0;
 }

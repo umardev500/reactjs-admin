@@ -1,4 +1,6 @@
 import {
+  faBars,
+  faBell,
   faChartLine,
   faClipboardList,
   faCloudBolt,
@@ -12,6 +14,43 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const knobData = () => ({
+  header: {
+    navigation: [
+      {
+        id: 1,
+        title: 'left',
+        items: [
+          {
+            id: 1,
+            type: 'toggler',
+            icon: <FontAwesomeIcon fontSize={18} icon={faBars} />,
+            url: '#',
+            subMenu: [],
+          },
+        ],
+      },
+      {
+        id: 2,
+        title: 'right',
+        items: [
+          {
+            id: 1,
+            type: 'menu',
+            icon: <FontAwesomeIcon fontSize={18} icon={faBell} />,
+            url: '#',
+            subMenu: [],
+          },
+          {
+            id: 2,
+            type: 'menu',
+            icon: <FontAwesomeIcon fontSize={18} icon={faCog} />,
+            url: '#',
+            subMenu: [],
+          },
+        ],
+      },
+    ],
+  },
   sidebar: {
     navigation: [
       {
